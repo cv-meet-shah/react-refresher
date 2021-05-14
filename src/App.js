@@ -1,12 +1,15 @@
 import React from "react";
 import "./App.scss";
-import Home from "./pages/Home/Home";
+import { Home, ProductDetail, Checkout, Login } from "./pages";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header"></header>
-      <Home></Home>
+      <Home />
+      <ProductDetail />
+      <Checkout />
+      <Login />
     </div>
   );
 }
