@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.scss";
 import { Header } from "./components";
-import { Home, ProductDetail, Checkout, Login } from "./pages";
+import { Routes } from "./Routes";
 
 function App() {
   return (
@@ -9,10 +9,7 @@ function App() {
       <header className="App-header">
         <Header />
       </header>
-      <Home />
-      <ProductDetail />
-      <Checkout />
-      <Login />
+      <Routes />
     </div>
   );
 }
