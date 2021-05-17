@@ -1,5 +1,27 @@
 .home-page {
-  .product-list.list-group {
-    max-width: 200px;
+  .product-section {
+    flex-wrap: wrap;
+  }
+  &--carousel {
+    &--image-block {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 500px;
+      width: 100%;
+    }
+    &--image-1 {
+      background-image: url("../../utiliies/assets/back1.jpg");
+    }
+    &--image-2 {
+      background-image: url("../../utiliies/assets/back2.jpg");
+    }
+    &--image-3 {
+      background-image: url("../../utiliies/assets/back3.jpg");
+      background-position: top;
+    }
+    .carousel-caption {
+      color: #000;
+    }
   }
 }

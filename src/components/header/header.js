@@ -8,17 +8,15 @@ import "./header.scss";
 export default class Header extends Component {
   render() {
     return (
-      <div className="d-flex p-3">
-        <span>
-          <Link to="/" className="btn btn-primary">
-            Home
-          </Link>
-        </span>
+      <nav className="navbar navbar-light bg-light">
+        <Link to="/" className="navbar-brand h1">
+          Bootstrap
+        </Link>
         <span className="ml-auto">
           <Cart />
           <User />
         </span>
-      </div>
+      </nav>
     );
   }
 }

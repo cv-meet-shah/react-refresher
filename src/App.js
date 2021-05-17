@@ -9,7 +9,9 @@ function App() {
       <header className="App-header">
         <Header />
       </header>
-      <Routes />
+      <div className="container-fluid">
+        <Routes />
+      </div>
     </div>
   );
 }
