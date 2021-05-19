@@ -1,0 +1,31 @@
+[{
+    "productName": "Decent In Fast food",
+    "desc": "Chhindwara Locality, Chhindwara North Indian",
+    "background": "#3f7e00",
+    "rating": "4.5",
+    "id": 1
+},{
+    "productName": "Pizza Zone",
+    "desc": "Kalol Locality, Kalol Sandwich, Pizza, Fast Food",
+    "background": "#5ba829",
+    "rating": "4.1",
+    "id": 2
+},{
+    "productName": "Scoops Fast Food and Ice cream",
+    "desc": "Ankleshwar Locality, Ankleshwar North Indian, Chinese",
+    "background": "#9acd32",
+    "rating": "3.8",
+    "id": 3
+},{
+    "productName": "Da Pizza Hub",
+    "desc": "Jind Locality, Jind",
+    "background": "#5ba829",
+    "rating": "4.2",
+    "id": 4
+},{
+    "productName": "Hotel Rasoi",
+    "desc": "Achalpur Locality, Achalpur",
+    "background": "#3f7e00",
+    "rating": "4.5",
+    "id": 5
+}]

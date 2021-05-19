@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Carousel } from "react-bootstrap";
-
-import ProdutcHCard from "../../components/product/product-hcard";
+import products from "../../utilities/assets/products.json";
+import { ProductHCard } from "../../components";
 
 import "./home.scss";
 
@@ -14,20 +14,18 @@ export default class Home extends Component {
   }
   componentDidMount() {
     this.setState({
-      products: Array(10)
-        .fill(0)
-        .map((i, index) => index + 1),
+      products,
     });
   }
   render() {
     return (
       <div className="home-page">
         {this.carousel()}
-        <h3>Our exciting Products</h3>
+        <h3 className="pl-3">Our exciting Products</h3>
         <div className="d-flex product-section">
           {this.state.products &&
             this.state.products.map((product) => (
-              <ProdutcHCard productId={product} />
+              <ProductHCard product={product} key={product.id} />
             ))}
         </div>
       </div>

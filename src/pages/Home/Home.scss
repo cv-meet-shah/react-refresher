@@ -3,6 +3,7 @@
     flex-wrap: wrap;
   }
   &--carousel {
+    margin-bottom: 1rem;
     &--image-block {
       background-size: cover;
       background-position: center;
@@ -11,13 +12,13 @@
       width: 100%;
     }
     &--image-1 {
-      background-image: url("../../utiliies/assets/back1.jpg");
+      background-image: url("../../utilities/assets/back1.jpg");
     }
     &--image-2 {
-      background-image: url("../../utiliies/assets/back2.jpg");
+      background-image: url("../../utilities/assets/back2.jpg");
     }
     &--image-3 {
-      background-image: url("../../utiliies/assets/back3.jpg");
+      background-image: url("../../utilities/assets/back3.jpg");
       background-position: top;
     }
     .carousel-caption {
