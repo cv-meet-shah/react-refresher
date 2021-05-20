@@ -6,7 +6,7 @@ import "./product-hcard.scss";
 
 export default class ProductHCard extends Component {
   render() {
-    const { productName, desc, background, rating, id } = this.props.product;
+    const { name, desc, background, rating, id } = this.props.product;
     return (
       <div className="card product-hcard" to={"product/" + id}>
         <div
@@ -21,7 +21,7 @@ export default class ProductHCard extends Component {
           </div>
         </div>
         <div className="product-hcard--card-body">
-          <h5 className="card-title">{productName}</h5>
+          <h5 className="card-title">{name}</h5>
           <p className="card-text">{desc}</p>
           <Link
             to={"/product/" + id}
