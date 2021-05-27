@@ -6,23 +6,30 @@ import "./product-hcard.scss";
 
 export default class ProductHCard extends Component {
   render() {
-    const { name, desc, background, rating, id } = this.props.product;
+    const {
+      name,
+      location,
+      user_rating: rating,
+      id,
+      thumb,
+    } = this.props.product;
+
     return (
       <div className="card product-hcard" to={"product/" + id}>
         <div
           className="product-hcard--img-top"
-          style={{ backgroundImage: `url(${fallback})` }}
+          style={{ backgroundImage: `url(${thumb || fallback})` }}
         >
           <div
             className="product-hcard--rating-container"
-            style={{ backgroundColor: background }}
+            style={{ backgroundColor: "#" + rating.rating_color }}
           >
-            {rating}
+            {rating.aggregate_rating}
           </div>
         </div>
         <div className="product-hcard--card-body">
           <h5 className="card-title">{name}</h5>
-          <p className="card-text">{desc}</p>
+          <p className="card-text">{location.locality_verbose}</p>
           <Link
             to={"/product/" + id}
             className="product-hcard--learn-more-btn mr-3"

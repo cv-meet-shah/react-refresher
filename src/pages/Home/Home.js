@@ -1,34 +1,33 @@
 import React, { useEffect } from "react";
 import { Carousel } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { ProductHCard } from "../../components";
+import { CategorySection } from "../../components";
 import {
-  fetchAllProducts,
-  selectAllProducts,
-} from "../../stores/products.slice";
+  fetchAllCategories,
+  selectAllCategories,
+} from "../../stores/category.slice";
 
 import "./home.scss";
 
 export const Home = () => {
   const dispatch = useDispatch();
-  const productSelector = useSelector(selectAllProducts);
-  const productStatus = productSelector.status;
+  const categorySelector = useSelector(selectAllCategories);
+  const categoryStatus = categorySelector.status;
 
   useEffect(() => {
-    if (productStatus === "idle") {
-      dispatch(fetchAllProducts());
+    if (categoryStatus === "idle") {
+      dispatch(fetchAllCategories());
     }
-  }, [productStatus, dispatch]);
+  }, [categoryStatus, dispatch]);
 
   let content;
 
-  if (productStatus === "loading") {
+  if (categoryStatus === "loading") {
     content = <div className="loader">Loading...</div>;
-  } else if (productStatus === "succeed") {
-    content = productSelector.products.map((product) => (
-      <ProductHCard product={product} key={product.id} />
+  } else if (categoryStatus === "succeed") {
+    content = categorySelector.categories.map((category) => (
+      <CategorySection category={category} key={category.id} />
     ));
-    console.log("content", content);
   }
 
   const renderedCarousel = (
@@ -77,8 +76,7 @@ export const Home = () => {
     <React.Fragment>
       <div className="home-page">
         {renderedCarousel}
-        <h3 className="pl-3">Our exciting Products</h3>
-        <div className="d-flex product-section">{content}</div>
+        <div>{content}</div>
       </div>
     </React.Fragment>
   );
