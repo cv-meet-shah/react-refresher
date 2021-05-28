@@ -18,7 +18,7 @@ export const fetchAllProductsByCategoryId = createAsyncThunk(
 );
 
 const initialState = {
-  categories: [],
+  categories: {},
   status: "idle",
   error: null,
 };
@@ -47,9 +47,11 @@ export const productsSlice = createSlice({
     },
     [fetchAllProductsByCategoryId.fulfilled]: (state, action) => {
       state.status = "succeed";
-      state.categories.push({
-        ...action.payload,
-      });
+      const {categoryId, products} = action.payload;
+      state.categories = {
+        ...state.categories,
+        [categoryId]: products
+      }
     },
     [fetchAllProductsByCategoryId.rejected]: (state, action) => {
       state.status = "failed";
@@ -66,11 +68,8 @@ export const selectAllProducts = (state) => state.products;
 
 export const selectProductsByCategoryId = (state, categoryId) => {
   const products = selectAllProducts(state);
-  const category = products.categories.find(
-    (item) => item.categoryId === categoryId
-  );
   return {
-    products: (category && category.products) || [],
+    products: (products.categories[categoryId]) || [],
     error: products.error,
     status: products.status,
   };

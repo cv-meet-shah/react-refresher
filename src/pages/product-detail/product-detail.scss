@@ -1,0 +1,87 @@
+.restaurent-page {
+  .card-image {
+    border-radius: 3px;
+    background-size: cover;
+    background-position: center;
+    height: 11.2rem;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    display: block;
+  }
+
+  h1 {
+    height: 70px;
+  }
+
+  .text-grey {
+    color: #89959b;
+  }
+
+  .text-wrapper {
+    bottom: 0px;
+  }
+
+  .rating {
+    background: #9acd32;
+    color: #fff;
+    width: 80px;
+    line-height: 39px;
+    font-weight: 700;
+    font-size: 30px;
+    padding: 3px;
+    border-radius: 0.25rem;
+    span {
+      font-size: 22px;
+      opacity: 0.5;
+    }
+  }
+  .text-vote {
+    font-size: 12px;
+  }
+
+  .review-wrapper {
+    .card-wrapper {
+      white-space: nowrap;
+      overflow-x: auto;
+      width: 100%;
+      display: flex;
+      .review-card {
+        display: inline-block;
+        width: 20rem;
+        min-width: 20rem;
+        margin: 1rem;
+        white-space: normal;
+        .card-body {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+        }
+        .user-rating {
+          text-transform: uppercase;
+          letter-spacing: 0.01em;
+          font-weight: 700;
+          font-size: 12px;
+        }
+        .avatar {
+          width: 65px;
+          height: auto;
+          display: block;
+          border-radius: 500rem;
+          border: 1px solid #dedede;
+        }
+        .review-name {
+          font-size: 1em;
+          font-weight: 700;
+          line-height: 1.14em;
+        }
+        .text-grey {
+          color: #89959b;
+        }
+        .badge {
+          font-size: 16px;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
