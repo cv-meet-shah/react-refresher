@@ -25,15 +25,23 @@ export const cartSlice = createSlice({
     },
     removeFromCart: (state, action) => {
       const { id } = action.payload;
-      const alreadyExist = state.cart.find((cartItem) => cartItem.id === id);
-      if (alreadyExist) {
-        alreadyExist.qty--;
+      const { cart } = state;
+      const index = cart.findIndex((cartItem) => cartItem.id === id);
+      if (index !== -1) {
+        cart[index].qty--;
+        if (cart[index].qty <= 0) {
+          cart.splice(index, 1);
+          state.cart = cart;
+        }
       }
+    },
+    clearCart: (state, action) => {
+      state.cart = [];
     },
   },
 });
 
-export const { addToCart, removeFromCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, clearCart } = cartSlice.actions;
 
 export default cartSlice.reducer;
 

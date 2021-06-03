@@ -21,11 +21,11 @@ export const Cart = () => {
   }
 
   return (
-    <span className="mr-3 position-relative">
-      <Link to="/checkout">
+    <Link to="/checkout">
+      <span className="mr-3 position-relative">
         <FontAwesomeIcon icon={faCartPlus} className="text-danger mr-1" />
-      </Link>
-      {content}
-    </span>
+        {content}
+      </span>
+    </Link>
   );
 };

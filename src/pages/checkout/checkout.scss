@@ -1,0 +1,42 @@
+.checkout-page {
+  .card-image {
+    border-radius: 3px;
+    background-size: cover;
+    background-position: center;
+    height: 11.2rem;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    display: block;
+  }
+  .qty-wrapper {
+    height: 60px;
+    display: flex;
+    align-items: center;
+  }
+
+  .text-grey {
+    color: #89959b;
+  }
+
+  .text-wrapper {
+    bottom: 0px;
+  }
+
+  .rating {
+    background: #9acd32;
+    color: #fff;
+    width: 80px;
+    line-height: 39px;
+    font-weight: 700;
+    font-size: 30px;
+    padding: 3px;
+    border-radius: 0.25rem;
+    span {
+      font-size: 22px;
+      opacity: 0.5;
+    }
+  }
+  .text-vote {
+    font-size: 12px;
+  }
+}
