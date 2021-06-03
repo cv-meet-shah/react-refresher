@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 import api from "../utilities/api";
-import { ZomatoConstants } from "../utilities/zomato.constants";
+import { ZomatoConstants } from "../constants/zomato.constants";
 
 export const fetchRestaurentById = createAsyncThunk(
   "restaurent/fetch",
