@@ -4,6 +4,8 @@ import categoryReducer from "./category.slice";
 import restaurentReducer from "./restaurent.slice";
 import reviewReducer from "./reviews.slice";
 import cartReducer from "./cart.slice";
+import { saveState } from "../utilities/localStorage-util";
+import { reducer as toastrReducer } from "react-redux-toastr";
 
 export const store = configureStore({
   reducer: {
@@ -12,5 +14,10 @@ export const store = configureStore({
     restaurent: restaurentReducer,
     reviews: reviewReducer,
     cart: cartReducer,
+    toastr: toastrReducer,
   },
+});
+
+store.subscribe(() => {
+  saveState(store.getState().cart);
 });

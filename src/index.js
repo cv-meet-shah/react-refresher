@@ -6,12 +6,22 @@ import { store } from "./stores/store";
 import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
+import ReduxToastr from "react-redux-toastr";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
         <App />
+        <ReduxToastr
+          timeOut={2000}
+          preventDuplicates
+          position="top-right"
+          getState={(state) => state.toastr} // This is the default
+          transitionIn="fadeIn"
+          transitionOut="fadeOut"
+          closeOnToastrClick
+        />
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,

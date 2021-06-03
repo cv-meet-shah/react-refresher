@@ -1,33 +1,27 @@
-import { createEntityAdapter, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+import { loadState } from "../utilities/localStorage-util";
 
 const initialState = {
-  cart: [],
-  status: "idle",
-  error: null,
+  cart: loadState() || [],
 };
 
-const cartAdapter = createEntityAdapter({
-  updateCart: (cart) => {
-    localStorage.setItem(cartKey, JSON.stringify(cart));
-  },
-});
-
-const cartKey = "cart";
 export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
     addToCart: (state, action) => {
-      const { id, productDetail } = action.payload;
-      const alreadyExist = state.cart.find(
-        (cartItem) => cartItem.id === id
-      ) || {
-        qty: 0,
-        id,
-        productDetail,
-      };
-      alreadyExist.qty++;
-      cartAdapter.updateCart(state.cart);
+      const { id, product } = action.payload;
+      const { cart } = state;
+      let cartItem = cart.find((cartItem) => cartItem.id === id);
+      if (!cartItem) {
+        cart.push({
+          qty: 1,
+          id,
+          product,
+        });
+      } else {
+        cartItem.qty++;
+      }
     },
     removeFromCart: (state, action) => {
       const { id } = action.payload;
@@ -35,18 +29,11 @@ export const cartSlice = createSlice({
       if (alreadyExist) {
         alreadyExist.qty--;
       }
-      cartAdapter.updateCart(state.cart);
-    },
-    loadCart: (state, action) => {
-      let cart = JSON.parse(localStorage.getItem(cartKey));
-      if (!Array.isArray(cart)) cart = [];
-      state.status = "loaded";
-      state.cart = cart;
     },
   },
 });
 
-export const { addToCart, removeFromCart, loadCart } = cartSlice.actions;
+export const { addToCart, removeFromCart } = cartSlice.actions;
 
 export default cartSlice.reducer;
 
